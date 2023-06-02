@@ -15,10 +15,17 @@ type ApiResponse = {
   results: Question[];
 };
 
-const Quiz = () => {
+/* The full api: https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}
+The base api : https://opentdb.com/api.php?amount=${amount}
+If category !="Any Category" api = base+&category=${category}
+If difficulty !="Any Difficulty" api = base+&difficulty=${difficulty}
+If type !="Any Type" api = base+&type=${type}
+*/
+const baseApi = "https://opentdb.com/api.php?amount=${amount}";
 
+const Quiz = () => {
   const fetchQuiz = async () => {
-    const res = await axios.get<ApiResponse>('https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple')
+    const res = await axios.get<ApiResponse>(baseApi)
     const data = res.data
 
   return (
