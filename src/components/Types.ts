@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export enum categoryList {
   "Any Category",
   "General Knowledge" = 9,
@@ -37,4 +39,22 @@ export enum typeList {
   "Any Type",
   "Multiple Choice" = "multiple",
   "True / False" = "boolean",
+}
+
+export type Question = {
+  category: string;
+  type: string;
+  difficulty: string;
+  question: string;
+  correct_answer: string;
+  incorrect_answers: string[];
+};
+
+export type ApiResponse = {
+  response_code: number;
+  results: Question[];
+};
+
+export interface IProps {
+  children: ReactNode;
 }
