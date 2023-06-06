@@ -2,20 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-type Question = {
-  category: string;
-  type: string;
-  difficulty: string;
-  question: string;
-  correct_answer: string;
-  incorrect_answers: string[];
-};
-
-type ApiResponse = {
-  response_code: number;
-  results: Question[];
-};
+import { Question, ApiResponse } from "./Types";
 
 /* The full api: https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}
 The base api : https://opentdb.com/api.php?amount=${amount}
@@ -46,13 +33,19 @@ const Quiz = () => {
   return (
     <>
       <h1>Quiz</h1>
-      {data.results.map((question) => (
-        <div>
-          <p key={question.question}>{question.question}</p>
-          <p>{question.correct_answer}</p>
-          <p>{question.incorrect_answers}</p>
-        </div>
-      ))}
+      <div>
+        {data.results.map((question) => (
+          <div className="my-4">
+            <p key={question.question} className="my-2">
+              {question.question}
+            </p>
+            <p>{question.correct_answer}</p>
+            {question.incorrect_answers.map((answer) => (
+              <p>{answer}</p>
+            ))}
+          </div>
+        ))}
+      </div>
     </>
   );
 };
