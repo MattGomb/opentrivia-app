@@ -1,13 +1,20 @@
+import { useSearchContext } from "@/context/Context";
 import React from "react";
 
 const Select = () => {
+  // Put here the context logic for the three variables
+  // Create onChange events for the three select elements to update the context0
+  const { category, defineCategory } = useSearchContext();
+  const { difficulty, defineDifficulty } = useSearchContext();
+  const { type, defineType } = useSearchContext();
+  
   return (
     <>
       <h1>Put together the quiz you would like to solve!</h1>
       <div className="flex my-4 gap-5">
         <div>
           <label htmlFor="category" className="p-2">Category</label>
-          <select name="category" id="category">
+          <select name="category" id="category" value={category} onChange={(e) => defineCategory(+e.target.value)}>
             <option value="any" selected>Any Category</option>
             <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
@@ -37,7 +44,7 @@ const Select = () => {
         </div>
         <div>
           <label htmlFor="difficulty" className="p-2">Difficulty</label>
-          <select name="difficulty" id="difficulty">
+          <select name="difficulty" id="difficulty" value={difficulty} onChange={(e) => defineDifficulty(e.target.value)}>
             <option value="any" selected>Any Difficulty</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
@@ -46,7 +53,7 @@ const Select = () => {
         </div>
         <div>
           <label htmlFor="type" className="p-2">Type</label>
-          <select name="type" id="type">
+          <select name="type" id="type" value={type} onChange={(e) => defineType(e.target.value)}>
             <option value="any" selected>Any Type</option>
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True / False</option>
