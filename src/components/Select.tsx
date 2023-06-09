@@ -16,7 +16,7 @@ const Select = () => {
       <div className="flex my-4 gap-5">
         <div>
           <label htmlFor="category" className="p-2">Category</label>
-          <select name="category" id="category" className="p-1" value={category} onChange={(e) => defineCategory(+e.target.value)}>
+          <select name="category" id="category" className="p-1 my-2" value={category} onChange={(e) => defineCategory(+e.target.value)}>
             <option value="any" defaultValue={category}>Any Category</option>
             <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
@@ -46,7 +46,7 @@ const Select = () => {
         </div>
         <div>
           <label htmlFor="difficulty" className="p-2">Difficulty</label>
-          <select name="difficulty" id="difficulty" className="p-1" value={difficulty} onChange={(e) => defineDifficulty(e.target.value)}>
+          <select name="difficulty" id="difficulty" className="p-1 my-2" value={difficulty} onChange={(e) => defineDifficulty(e.target.value)}>
             <option value="any" defaultValue={difficulty}>Any Difficulty</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
@@ -55,7 +55,7 @@ const Select = () => {
         </div>
         <div>
           <label htmlFor="type" className="p-2">Type</label>
-          <select name="type" id="type" className="p-1" value={type} onChange={(e) => defineType(e.target.value)}>
+          <select name="type" id="type" className="p-1 my-2" value={type} onChange={(e) => defineType(e.target.value)}>
             <option value="any" defaultValue={type}>Any Type</option>
             <option value="multiple">Multiple Choice</option>
             <option value="boolean">True / False</option>
