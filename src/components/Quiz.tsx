@@ -32,7 +32,7 @@ const Quiz = () => {
 
   return (
     <>
-      <h1>Quiz</h1>
+      <h1 className="text-2xl">Quiz</h1>
       <div>
         {data.results.map((question) => (
           <div className="my-4">
