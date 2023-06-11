@@ -18,6 +18,7 @@ const SearchContextProvider = ({ children }: IProps) => {
   const [category, setCategory] = useState(9);
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
+  
 /*   const [data, setData] = useState<ApiResponse>({
     response_code: 0,
     results: [],

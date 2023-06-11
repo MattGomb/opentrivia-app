@@ -29,7 +29,7 @@ const Quiz = () => {
   useEffect(() => {
     fetchQuiz();
   }, []);
-
+// We need a way to properly display quotes and stuff in the questions and answers.
   return (
     <>
       <h1 className="text-2xl">Quiz</h1>
@@ -39,6 +39,8 @@ const Quiz = () => {
             <p key={question.question} className="my-2">
               {question.question}
             </p>
+            {/* If question type is "multiple" display correct answer and incorrect array in random order
+                If question type is "boolean" just display true and false buttons */}
             <p>{question.correct_answer}</p>
             {question.incorrect_answers.map((answer) => (
               <p>{answer}</p>
