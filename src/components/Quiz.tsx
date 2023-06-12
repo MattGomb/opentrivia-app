@@ -13,6 +13,8 @@ If type !="Any Type" api = base+&type=${type}
 const baseApi = "https://opentdb.com/api.php?amount=10";
 
 const Quiz = () => {
+  // We need to move the fetch to the context so its available to all components and then deconstruct "data" as useSearchContext.
+
   const [data, setData] = useState<ApiResponse>({
     response_code: 0,
     results: [],
@@ -23,6 +25,7 @@ const Quiz = () => {
     const data = res.data;
     setData(data);
 
+    console.log(data);
     console.log(data.results);
   };
 

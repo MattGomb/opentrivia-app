@@ -19,7 +19,9 @@ const SearchContextProvider = ({ children }: IProps) => {
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
   
-/*   const [data, setData] = useState<ApiResponse>({
+/*  We want the fetch to be here so we can use the data in the all components, we need to add it to the provider.
+    
+  const [data, setData] = useState<ApiResponse>({
     response_code: 0,
     results: [],
   });
