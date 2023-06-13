@@ -1,18 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SearchContext } from "./Context";
 import axios from "axios";
 import { ApiResponse, IProps } from "../components/Types";
-
-
-/* The full api: https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}
-The base api : https://opentdb.com/api.php?amount=${amount}
-If category !="Any Category" api = base+&category=${category}
-If difficulty !="Any Difficulty" api = base+&difficulty=${difficulty}
-If type !="Any Type" api = base+&type=${type}
-*/
-const baseApi = "https://opentdb.com/api.php?amount=10";
 
 const SearchContextProvider = ({ children }: IProps) => {
   const [category, setCategory] = useState(9);
@@ -20,6 +11,7 @@ const SearchContextProvider = ({ children }: IProps) => {
   const [type, setType] = useState("");
   
 /*  We want the fetch to be here so we can use the data in the all components, we need to add it to the provider.
+*/
     
   const [data, setData] = useState<ApiResponse>({
     response_code: 0,
@@ -27,12 +19,16 @@ const SearchContextProvider = ({ children }: IProps) => {
   });
 
   const fetchQuiz = async () => {
-    const res = await axios.get<ApiResponse>(baseApi);
+    const res = await axios.get<ApiResponse>(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`);
     const data = res.data;
     setData(data);
 
-    console.log(data.results);
-  }; */
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchQuiz();
+  }, []);
 
   const defineCategory = (category: number) => {
     setCategory(category);
@@ -49,12 +45,14 @@ const SearchContextProvider = ({ children }: IProps) => {
   return (
     <SearchContext.Provider
       value={{
+        data,
         category,
         difficulty,
         type,
         defineCategory,
         defineDifficulty,
         defineType,
+        fetchQuiz,
       }}
     >
       {children}
