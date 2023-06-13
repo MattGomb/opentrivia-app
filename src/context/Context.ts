@@ -1,25 +1,22 @@
 'use client'
 
 import { createContext, useContext } from "react";
+import { ISearchContext } from "@/components/Types";
 
 // If we want to have the fetch in the context, we need to add 'data' to the interface, data is an object of {response_code: 0, results: Array(10)}
 
-interface ISearchContext {
-  category: number;
-  defineCategory: (category: number) => void;
-  difficulty: string;
-  defineDifficulty: (difficulty: string) => void;
-  type: string;
-  defineType: (type: string) => void;
-}
-
 export const SearchContext = createContext<ISearchContext>({
-  category: 9,
-  defineCategory(category) {},
+  data: {
+    response_code: 0,
+    results: [],
+  },
+  category: 0,
+  defineCategory(category) { },
   difficulty: "",
-  defineDifficulty(difficulty) {},
+  defineDifficulty(difficulty) { },
   type: "",
-  defineType(type) {},
+  defineType(type) { },
+  fetchQuiz: (response_code: number, results: [],) => Promise.resolve({response_code, results}),
 });
 
 export const useSearchContext = () => useContext(SearchContext);
