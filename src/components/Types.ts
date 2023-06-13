@@ -42,7 +42,7 @@ export enum typeList {
 }
 
 export type Question = {
-  category: string;
+  category: number;
   type: string;
   difficulty: string;
   question: string;
@@ -57,4 +57,25 @@ export type ApiResponse = {
 
 export interface IProps {
   children: ReactNode;
+}
+
+export interface ISearchContext {
+  data: {
+    response_code: number;
+    results: Array<{
+      category: number;
+      type: string;
+      difficulty: string;
+      question: string;
+      correct_answer: string;
+      incorrect_answers: string[];
+    }>;
+  };
+  category: number;
+  defineCategory: (category: number) => void;
+  difficulty: string;
+  defineDifficulty: (difficulty: string) => void;
+  type: string;
+  defineType: (type: string) => void;
+  fetchQuiz: (response_code: number, results: []) => void;
 }
