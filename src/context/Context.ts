@@ -16,7 +16,7 @@ export const SearchContext = createContext<ISearchContext>({
   defineDifficulty(difficulty) { },
   type: "",
   defineType(type) { },
-  fetchQuiz: (response_code: number, results: [],) => Promise.resolve({response_code, results}),
+  fetchQuiz: (response_code: number, results: [],) => Promise.resolve({ response_code, results }),
 });
 
 export const useSearchContext = () => useContext(SearchContext);
