@@ -1,40 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Question, ApiResponse } from "./Types";
 import { useSearchContext } from "@/context/Context";
 
-/* The full api: https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}
-The base api : https://opentdb.com/api.php?amount=${amount}
-If category !="Any Category" api = base+&category=${category}
-If difficulty !="Any Difficulty" api = base+&difficulty=${difficulty}
-If type !="Any Type" api = base+&type=${type}
-*/
-const baseApi = "https://opentdb.com/api.php?amount=10";
-
 const Quiz = () => {
-  // We need to move the fetch to the context so its available to all components and then deconstruct "data" as useSearchContext.
-
   const { data } = useSearchContext();
-
-  /* const [data, setData] = useState<ApiResponse>({
-    response_code: 0,
-    results: [],
-  });
-
-  const fetchQuiz = async () => {
-    const res = await axios.get<ApiResponse>(baseApi);
-    const data = res.data;
-    setData(data);
-
-    console.log(data);
-    console.log(data.results);
-  };
-
-  useEffect(() => {
-    fetchQuiz();
-  }, []); */
 
 // We need a way to properly display quotes and stuff in the questions and answers.
   return (
