@@ -6,12 +6,9 @@ import axios from "axios";
 import { ApiResponse, IProps } from "../components/Types";
 
 const SearchContextProvider = ({ children }: IProps) => {
-  const [category, setCategory] = useState(9);
+  const [category, setCategory] = useState(0);
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
-  
-/*  We want the fetch to be here so we can use the data in the all components, we need to add it to the provider.
-*/
     
   const [data, setData] = useState<ApiResponse>({
     response_code: 0,
@@ -23,12 +20,8 @@ const SearchContextProvider = ({ children }: IProps) => {
     const data = res.data;
     setData(data);
 
-    console.log(data);
+    console.log(data, res.config.url);
   };
-
-  useEffect(() => {
-    fetchQuiz();
-  }, []);
 
   const defineCategory = (category: number) => {
     setCategory(category);
