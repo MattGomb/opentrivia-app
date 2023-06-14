@@ -10,7 +10,11 @@ const Quiz = () => {
     <>
       <h1 className="text-2xl">Quiz</h1>
       <div>
-        {data.results.map((question) => (
+        {/* If data is not yet fetched, display loading message, fix this later */
+        data.response_code != 0 ? (
+          <p>There are no 10 questions in this combination, please put together another one!</p>
+        ) : (
+        data.results.map((question) => (
           <div className="my-4">
             <p key={question.question} className="my-2">
               {question.question}
@@ -22,7 +26,7 @@ const Quiz = () => {
               <p>{answer}</p>
             ))}
           </div>
-        ))}
+        )))}
       </div>
     </>
   );
