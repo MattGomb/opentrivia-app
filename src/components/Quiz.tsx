@@ -11,6 +11,9 @@ const Quiz = () => {
       <div>
         {
           /* If data is not yet fetched, display loading message, fix this later */
+          data.results.length === 0 ? (
+            <p>Create your quiz by choosing from the options and clicking the magic button!</p>
+          ) :
           data.response_code != 0 ? (
             <p>
               There are not enough questions in this combination, please create
