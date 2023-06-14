@@ -6,6 +6,8 @@ import React from "react";
 const Select = () => {
   const {
     data,
+    amount,
+    defineAmount,
     category,
     defineCategory,
     difficulty,
@@ -22,7 +24,24 @@ const Select = () => {
       </h1>
       <div className="flex my-4 gap-5">
         <div>
-          <label htmlFor="category" className="p-2">
+          <label htmlFor="amount" className="py-2">
+            Amount
+          </label>
+          <select
+            name="amount"
+            id="amount"
+            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={amount}
+            onChange={(e) => defineAmount(+e.target.value)}
+          >
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={15}>15</option>
+            <option value={20}>20</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="category" className="py-2">
             Category
           </label>
           <select
@@ -62,7 +81,7 @@ const Select = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="difficulty" className="p-2">
+          <label htmlFor="difficulty" className="py-2">
             Difficulty
           </label>
           <select
@@ -79,7 +98,7 @@ const Select = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="type" className="p-2">
+          <label htmlFor="type" className="py-2">
             Type
           </label>
           <select
@@ -99,7 +118,12 @@ const Select = () => {
         className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         onClick={() => {
           fetchQuiz(data.response_code, []),
-            console.log(category, difficulty, type);
+            console.log(
+              `nr of questions: ${amount}, `,
+              `id of category (0 if any): ${category}, `,
+              `difficulty (empty if any): ${difficulty}, `,
+              `question type (empty if any): ${type} `
+            );
         }}
       >
         Get me a Quiz!

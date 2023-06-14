@@ -10,6 +10,8 @@ export const SearchContext = createContext<ISearchContext>({
     response_code: 0,
     results: [],
   },
+  amount: 10,
+  defineAmount(amount) { },
   category: 0,
   defineCategory(category) { },
   difficulty: "",

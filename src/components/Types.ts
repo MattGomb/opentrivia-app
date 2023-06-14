@@ -29,14 +29,14 @@ export enum categoryList {
 }
 
 export enum difficultyList {
-  "Any Difficulty",
+  "Any Difficulty" = "",
   "Easy" = "easy",
   "Medium" = "medium",
   "Hard" = "hard",
 }
 
 export enum typeList {
-  "Any Type",
+  "Any Type" = "",
   "Multiple Choice" = "multiple",
   "True / False" = "boolean",
 }
@@ -71,6 +71,8 @@ export interface ISearchContext {
       incorrect_answers: string[];
     }>;
   };
+  amount: number;
+  defineAmount: (amount: number) => void;
   category: number;
   defineCategory: (category: number) => void;
   difficulty: string;

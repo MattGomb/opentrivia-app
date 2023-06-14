@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SearchContext } from "./Context";
 import axios from "axios";
 import { ApiResponse, IProps } from "../components/Types";
 
 const SearchContextProvider = ({ children }: IProps) => {
+  const [amount, setAmount] = useState(10);
   const [category, setCategory] = useState(0);
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
@@ -16,11 +17,15 @@ const SearchContextProvider = ({ children }: IProps) => {
   });
 
   const fetchQuiz = async () => {
-    const res = await axios.get<ApiResponse>(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=${type}`);
+    const res = await axios.get<ApiResponse>(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`);
     const data = res.data;
     setData(data);
 
     console.log(data, res.config.url);
+  };
+
+  const defineAmount = (amount: number) => {
+    setAmount(amount);
   };
 
   const defineCategory = (category: number) => {
@@ -39,9 +44,11 @@ const SearchContextProvider = ({ children }: IProps) => {
     <SearchContext.Provider
       value={{
         data,
+        amount,
         category,
         difficulty,
         type,
+        defineAmount,
         defineCategory,
         defineDifficulty,
         defineType,
