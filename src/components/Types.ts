@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export enum categoryList {
-  "Any Category",
+  "Any Category" = 0,
   "General Knowledge" = 9,
   "Entertainment: books",
   "Entertainment: film",
