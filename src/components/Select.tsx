@@ -75,9 +75,9 @@ const Select = () => {
             <option value={29}>Entertainment: Comics</option>
             <option value={30}>Science: Gadgets</option>
             <option value={31}>
-              Entertainment: Japanese Anime <br />&amp; Manga
+              Entertainment: Japanese Anime &amp; Manga
             </option>
-            <option value={32}>Entertainment: Cartoon <br />&amp; Animations</option>
+            <option value={32}>Entertainment: Cartoon &amp; Animations</option>
           </select>
         </div>
         <div>
