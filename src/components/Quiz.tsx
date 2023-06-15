@@ -8,8 +8,7 @@ const Quiz = () => {
 
   return (
     <>
-      <h1 className="text-2xl">Quiz</h1>
-      <div className="w-full text-center">
+      <div className="w-full text-center mt-10 p-4 border border-black border-1 rounded-lg">
         {
           /* If data is not yet fetched, display loading message, fix this later */
           data.results.length === 0 ? (
