@@ -22,7 +22,7 @@ const Select = () => {
       <h1 className="text-3xl">
         Put together the quiz you would like to solve!
       </h1>
-      <div className="flex my-4 gap-5">
+      <div className="flex flex-col md:flex-row my-4 gap-5">
         <div>
           <label htmlFor="amount" className="py-2">
             Amount
@@ -75,9 +75,9 @@ const Select = () => {
             <option value={29}>Entertainment: Comics</option>
             <option value={30}>Science: Gadgets</option>
             <option value={31}>
-              Entertainment: Japanese Anime &amp; Manga
+              Entertainment: Japanese Anime <br />&amp; Manga
             </option>
-            <option value={32}>Entertainment: Cartoon &amp; Animations</option>
+            <option value={32}>Entertainment: Cartoon <br />&amp; Animations</option>
           </select>
         </div>
         <div>

@@ -27,7 +27,7 @@ const Quiz = () => {
               <div className="mt-4 mb-8" key={question.question}>
                 <p className="my-2 text-lg font-bold">{he.decode(question.question)}</p>
                 {question.type === "boolean" ? (
-                  <div className="flex flex-wrap justify-center">
+                  <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
                     {[question.correct_answer, ...question.incorrect_answers]
                       .sort()
                       .reverse()
@@ -36,7 +36,7 @@ const Quiz = () => {
                       ))}
                   </div>
                 ) : (
-                  <div className="flex flex-wrap justify-center">
+                  <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
                     {[...question.incorrect_answers, question.correct_answer]
                       .sort()
                       .map((answer, i) => (
