@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchContext } from "@/context/Context";
+import he from "he";
 
 const Quiz = () => {
   const { data } = useSearchContext();
@@ -24,7 +25,7 @@ const Quiz = () => {
           ) : (
             data.results.map((question) => (
               <div className="mt-4 mb-8" key={question.question}>
-                <p className="my-2 text-lg font-bold">{question.question}</p>
+                <p className="my-2 text-lg font-bold">{he.decode(question.question)}</p>
                 {question.type === "boolean" ? (
                   <div className="flex flex-wrap justify-center">
                     {[question.correct_answer, ...question.incorrect_answers]
@@ -39,7 +40,7 @@ const Quiz = () => {
                     {[...question.incorrect_answers, question.correct_answer]
                       .sort()
                       .map((answer, i) => (
-                        <p key={i} className="w-2/5 border border-black border-1 rounded-md py-2 m-2">{answer}</p>
+                        <p key={i} className="w-2/5 border border-black border-1 rounded-md py-2 m-2">{he.decode(answer)}</p>
                       ))}
                   </div>
                 )}
