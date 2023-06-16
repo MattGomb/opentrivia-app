@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useSearchContext } from "@/context/Context";
 import he from "he";
+import { TiTick } from "react-icons/ti";
+import { FaTimes } from "react-icons/fa";
 
 const Quiz = () => {
   const { data, amount, category, difficulty } = useSearchContext();
@@ -107,23 +109,29 @@ const Quiz = () => {
             </h1>
             <div className="grid lg:grid-cols-2">
               {data.results.map((question, i) => (
-                <div key={i} className="  flex flex-col lg:mx-auto">
+                <div key={i} className="flex flex-col lg:mx-auto">
                   <p className="font-bold m-1 text-2xl">
                     {i + 1}. {he.decode(question.question)}
                   </p>
                   <p className="m-1 text-lg">
-                    The correct answer was: {he.decode(question.correct_answer)}
+                    The correct answer was:{" "}
+                    <TiTick color="green" size={24} className="inline-block" />{" "}
+                    {he.decode(question.correct_answer)}
                   </p>
                   {question.correct_answer === chosenAnswer[i] ? (
                     <p className="mb-3 mt-2 text-lg">
-                      Your answer was:
-                      <span> correctsymbol </span>
+                      Your answer was:{" "}
+                      <TiTick
+                        color="green"
+                        size={24}
+                        className="inline-block"
+                      />{" "}
                       {he.decode(chosenAnswer[i])}
                     </p>
                   ) : (
                     <p className="mb-3 mt-2 text-lg">
-                      Your answer was:
-                      <span> wrongsymbol </span>
+                      Your answer was:{" "}
+                      <FaTimes color="red" size={24} className="inline-block" />{" "}
                       {he.decode(chosenAnswer[i])}
                     </p>
                   )}
