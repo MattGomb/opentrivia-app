@@ -20,9 +20,10 @@ const Select = () => {
 
   return (
     <>
-      <h1 className="text-3xl">
-        Put together the quiz you would like to solve!
+      <h1 className="text-4xl font-bold mt-4 mb-8">
+        OpenQuiz <br />
       </h1>
+      <p>Put together the quiz you would like to solve!</p>
       <div className="flex flex-col md:flex-row my-4 gap-5">
         <div>
           <label htmlFor="amount" className="py-2">
