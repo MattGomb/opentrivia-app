@@ -19,7 +19,7 @@ const Quiz = () => {
 
   const handleChoice = (answer: string) => {
     setChosenAnswer([...chosenAnswer, answer]);
-    const isCorrect = answer === currentQuestion.correct_answer.toString();
+    const isCorrect = answer === currentQuestion.correct_answer;
     setScore(isCorrect ? score + 1 : score);
     goToNextQuestion();
 
@@ -28,22 +28,22 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="w-full text-center mt-10 p-4 border border-black border-1 rounded-lg">
+      <div className="w-full text-center mt-10 p-4">
         {!data.response_code && data.results.length === 0 ? (
-          <p className="bg-sky-500 p-4 font-bold text-white tracking-wider rounded-lg">
+          <p className="bg-sky-500 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             Create your quiz by choosing from the options and clicking the magic
             button!
           </p>
         ) : data.response_code != 0 && data.results.length === 0 ? (
-          <p className="bg-red-500 p-4 font-bold text-white tracking-wider rounded-lg">
+          <p className="bg-red-500 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             There are not enough questions in this combination, please create
             another quiz!
           </p>
         ) : (
           currentQuestionIndex < amount &&
           data.response_code === 0 && (
-            <div>
-              <h1>
+            <div className="border border-white border-1 rounded-lg drop-shadow-lg">
+              <h1 className="m-4">
                 {currentQuestionIndex + 1} / {amount}
               </h1>
               <div className="mt-4 mb-8" key={currentQuestion.question}>
@@ -71,7 +71,7 @@ const Quiz = () => {
                       .map((answer, i) => (
                         <button
                           key={i}
-                          className="w-2/5 border border-black border-1 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
+                          className="w-2/5 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
                           onClick={() => handleChoice(answer)}
                         >
                           {answer}
@@ -88,7 +88,7 @@ const Quiz = () => {
                       .map((answer, i) => (
                         <button
                           key={i}
-                          className="w-2/5 border border-black border-1 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
+                          className="w-2/5 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
                           onClick={() => handleChoice(answer)}
                         >
                           {he.decode(answer)}
@@ -101,30 +101,30 @@ const Quiz = () => {
           )
         )}
         {currentQuestionIndex === amount && (
-          <div>
-            <h1 className="text-2xl font-bold my-4">
+          <div className="border border-white border-1 rounded-lg">
+            <h1 className="text-3xl font-bold my-4">
               Your score is {score} / {amount}!
             </h1>
-            <div className="grid grid-cols-2">
+            <div className="grid lg:grid-cols-2">
               {data.results.map((question, i) => (
                 <div key={i} className="  flex flex-col lg:mx-auto">
-                  <p className="font-bold m-1 text-xl">
+                  <p className="font-bold m-1 text-2xl">
                     {i + 1}. {he.decode(question.question)}
                   </p>
-                  <p className="mb-1">
+                  <p className="m-1 text-lg">
                     The correct answer was: {he.decode(question.correct_answer)}
                   </p>
                   {question.correct_answer === chosenAnswer[i] ? (
-                    <p className="mb-2">
+                    <p className="mb-3 mt-2 text-lg">
                       Your answer was:
                       <span> correctsymbol </span>
-                      {chosenAnswer[i]}
+                      {he.decode(chosenAnswer[i])}
                     </p>
                   ) : (
-                    <p className="mb-2">
+                    <p className="mb-3 mt-2 text-lg">
                       Your answer was:
                       <span> wrongsymbol </span>
-                      {chosenAnswer[i]}
+                      {he.decode(chosenAnswer[i])}
                     </p>
                   )}
                 </div>
