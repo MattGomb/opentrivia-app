@@ -30,7 +30,7 @@ const Quiz = () => {
     <>
       <div className="w-full text-center mt-10 p-4">
         {!data.response_code && data.results.length === 0 ? (
-          <p className="bg-sky-500 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
+          <p className="bg-cyan-600 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             Create your quiz by choosing from the options and clicking the magic
             button!
           </p>
@@ -42,8 +42,8 @@ const Quiz = () => {
         ) : (
           currentQuestionIndex < amount &&
           data.response_code === 0 && (
-            <div className="border border-white border-1 rounded-lg drop-shadow-lg">
-              <h1 className="m-4">
+            <div className="border border-white border-1 rounded-lg drop-shadow-lg bg-slate-700">
+              <h1 className="m-4 text-xl">
                 {currentQuestionIndex + 1} / {amount}
               </h1>
               <div className="mt-4 mb-8" key={currentQuestion.question}>
@@ -71,7 +71,7 @@ const Quiz = () => {
                       .map((answer, i) => (
                         <button
                           key={i}
-                          className="w-2/5 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
+                          className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
                           onClick={() => handleChoice(answer)}
                         >
                           {answer}
@@ -88,7 +88,7 @@ const Quiz = () => {
                       .map((answer, i) => (
                         <button
                           key={i}
-                          className="w-2/5 rounded-md py-2 m-2 bg-sky-600 text-white hover:bg-sky-300 hover:text-black active:bg-sky-900"
+                          className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
                           onClick={() => handleChoice(answer)}
                         >
                           {he.decode(answer)}
@@ -101,7 +101,7 @@ const Quiz = () => {
           )
         )}
         {currentQuestionIndex === amount && (
-          <div className="border border-white border-1 rounded-lg">
+          <div className="border border-white border-1 rounded-lg bg-slate-700">
             <h1 className="text-3xl font-bold my-4">
               Your score is {score} / {amount}!
             </h1>
