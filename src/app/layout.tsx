@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="bg-slate-700 text-white">
         <SearchContextProvider>{children}</SearchContextProvider>
       </body>
     </html>
