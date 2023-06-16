@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchContext } from "@/context/Context";
-import React from "react";
+import React, { useState } from "react";
 
 const Select = () => {
   const {
@@ -16,6 +16,7 @@ const Select = () => {
     defineType,
     fetchQuiz,
   } = useSearchContext();
+  const [isDisabled, setIsDisabled] = useState(false);
 
   return (
     <>
@@ -33,6 +34,7 @@ const Select = () => {
             className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={amount}
             onChange={(e) => defineAmount(+e.target.value)}
+            disabled={isDisabled}
           >
             <option value={5}>5</option>
             <option value={10}>10</option>
@@ -50,6 +52,7 @@ const Select = () => {
             className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={category}
             onChange={(e) => defineCategory(+e.target.value)}
+            disabled={isDisabled}
           >
             <option value={0}>Any Category</option>
             <option value={9}>General Knowledge</option>
@@ -90,6 +93,7 @@ const Select = () => {
             className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={difficulty}
             onChange={(e) => defineDifficulty(e.target.value)}
+            disabled={isDisabled}
           >
             <option value={""}>Any Difficulty</option>
             <option value={"easy"}>Easy</option>
@@ -107,6 +111,7 @@ const Select = () => {
             className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             value={type}
             onChange={(e) => defineType(e.target.value)}
+            disabled={isDisabled}
           >
             <option value={""}>Any Type</option>
             <option value={"multiple"}>Multiple Choice</option>
@@ -114,20 +119,31 @@ const Select = () => {
           </select>
         </div>
       </div>
-      <button
-        className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-        onClick={() => {
-          fetchQuiz(data.response_code, []),
-            console.log(
-              `nr of questions: ${amount}, `,
-              `id of category (0 if any): ${category}, `,
-              `difficulty (empty if any): ${difficulty}, `,
-              `question type (empty if any): ${type} `
-            );
-        }}
-      >
-        Get me a Quiz!
-      </button>
+      <div className="flex flex-wrap gap-2">
+        <button
+          className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+          onClick={() => {
+            setIsDisabled(true),
+              fetchQuiz(data.response_code, []),
+              console.log(
+                `nr of questions: ${amount}, `,
+                `id of category (0 if any): ${category}, `,
+                `difficulty (empty if any): ${difficulty}, `,
+                `question type (empty if any): ${type} `
+              );
+          }}
+        >
+          Get me a Quiz!
+        </button>
+        {isDisabled && (
+          <button
+            className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+            onClick={() => setIsDisabled(false)}
+          >
+            New Combination
+          </button>
+        )}
+      </div>
     </>
   );
 };
