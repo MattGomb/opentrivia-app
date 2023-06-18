@@ -28,78 +28,77 @@ const Quiz = () => {
   // let's change the nested ternaries to something more readable
 
   return (
-    <section className="mb-24 p-4">
+    <section className="mb-24 p-4 w-full">
       <div className="w-full text-center">
-        {!data.response_code && data.results.length === 0 ? (
+        {!data.response_code && data.results.length === 0 && (
           <p className="bg-cyan-600 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             Create your quiz by choosing from the options and clicking the magic
             button!
           </p>
-        ) : data.response_code != 0 && data.results.length === 0 ? (
+        )}
+        {data.response_code != 0 && data.results.length === 0 && (
           <p className="bg-red-500 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             There are not enough questions in this combination, please create
             another quiz!
           </p>
-        ) : (
-          currentQuestionIndex < amount &&
-          data.response_code === 0 && (
-            <div className="border border-white border-1 rounded-lg drop-shadow-lg bg-slate-700">
-              <h1 className="m-4 text-xl">
-                {currentQuestionIndex + 1} / {amount}
-              </h1>
-              <div className="mt-4 mb-8" key={currentQuestion.question}>
-                {category === 0 && (
-                  <p className="my-2 text-lg italic">
-                    {currentQuestion.category}
-                  </p>
-                )}
-                {difficulty === "" && (
-                  <span className="my-2 text-lg italic">
-                    ({currentQuestion.difficulty})
-                  </span>
-                )}
-                <p className="my-2 text-lg font-bold">
-                  {he.decode(currentQuestion.question)}
+        )}
+        {currentQuestion && currentQuestionIndex < amount && data.response_code === 0 && (
+          <div className="border border-white border-1 rounded-lg drop-shadow-lg bg-slate-700 p-5">
+            <h1 className="m-4 text-xl">
+              {currentQuestionIndex + 1} / {amount}
+            </h1>
+            <div className="mt-4 mb-8" key={currentQuestion.question}>
+              {category === 0 && (
+                <p className="my-2 text-lg italic">
+                  {currentQuestion.category}
                 </p>
-                {currentQuestion.type === "boolean" ? (
-                  <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
-                    {[
-                      currentQuestion.correct_answer,
-                      ...currentQuestion.incorrect_answers,
-                    ]
-                      .sort()
-                      .reverse()
-                      .map((answer, i) => (
-                        <button
-                          key={i}
-                          className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
-                          onClick={() => handleChoice(answer)}
-                        >
-                          {answer}
-                        </button>
-                      ))}
-                  </div>
-                ) : (
-                  <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
-                    {[
-                      ...currentQuestion.incorrect_answers,
-                      currentQuestion.correct_answer,
-                    ]
-                      .sort()
-                      .map((answer, i) => (
-                        <button
-                          key={i}
-                          className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
-                          onClick={() => handleChoice(answer)}
-                        >
-                          {he.decode(answer)}
-                        </button>
-                      ))}
-                  </div>
-                )}
-              </div>
+              )}
+              {difficulty === "" && (
+                <span className="my-2 text-lg italic">
+                  ({currentQuestion.difficulty})
+                </span>
+              )}
+              <p className="my-2 text-lg font-bold">
+                {he.decode(currentQuestion.question)}
+              </p>
+              {currentQuestion.type === "boolean" ? (
+                <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
+                  {[
+                    currentQuestion.correct_answer,
+                    ...currentQuestion.incorrect_answers,
+                  ]
+                    .sort()
+                    .reverse()
+                    .map((answer, i) => (
+                      <button
+                        key={i}
+                        className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
+                        onClick={() => handleChoice(answer)}
+                      >
+                        {answer}
+                      </button>
+                    ))}
+                </div>
+              ) : (
+                <div className="lg:w-1/2 lg:mx-auto flex flex-wrap justify-center">
+                  {[
+                    ...currentQuestion.incorrect_answers,
+                    currentQuestion.correct_answer,
+                  ]
+                    .sort()
+                    .map((answer, i) => (
+                      <button
+                        key={i}
+                        className="w-2/5 rounded-md py-2 m-2 bg-slate-200 text-black hover:bg-slate-400 hover:text-white active:bg-zinc-700"
+                        onClick={() => handleChoice(answer)}
+                      >
+                        {he.decode(answer)}
+                      </button>
+                    ))}
+                </div>
+              )}
             </div>
-          )
+          </div>
         )}
         {currentQuestionIndex === amount && (
           <div className="border border-white border-1 rounded-lg bg-slate-700">
