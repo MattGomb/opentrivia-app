@@ -21,7 +21,7 @@ const Select = () => {
   return (
     <>
       <h1 className="text-4xl font-bold mt-4 mb-8">
-        OpenQuiz <br />
+        OpenQuiz
       </h1>
       <p>Put together the quiz you would like to solve!</p>
       <div className="flex flex-col md:flex-row my-4 gap-5">
@@ -125,13 +125,7 @@ const Select = () => {
           className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           onClick={() => {
             setIsDisabled(true),
-              fetchQuiz(data.response_code, []),
-              console.log(
-                `nr of questions: ${amount}, `,
-                `id of category (0 if any): ${category}, `,
-                `difficulty (empty if any): ${difficulty}, `,
-                `question type (empty if any): ${type} `
-              );
+              fetchQuiz(data.response_code, [])
           }}
           disabled={isDisabled}
         >

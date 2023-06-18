@@ -3,8 +3,6 @@
 import { createContext, useContext } from "react";
 import { ISearchContext } from "@/components/Types";
 
-// If we want to have the fetch in the context, we need to add 'data' to the interface, data is an object of {response_code: 0, results: Array(10)}
-
 export const SearchContext = createContext<ISearchContext>({
   data: {
     response_code: 0,

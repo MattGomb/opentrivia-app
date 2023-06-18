@@ -28,6 +28,8 @@ const Quiz = () => {
     console.log(currentQuestionIndex, score, amount);
   };
 
+  // let's change the nested ternaries to something more readable
+
   return (
     <>
       <div className="w-full text-center mt-10 p-4">
