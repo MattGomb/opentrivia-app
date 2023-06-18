@@ -13,17 +13,14 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const currentQuestion = data.results[currentQuestionIndex];
 
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < amount) {
-      setCurrentQuestionIndex((i) => i + 1);
-    }
-  };
-
   const handleChoice = (answer: string) => {
     setChosenAnswer([...chosenAnswer, answer]);
     const isCorrect = answer === currentQuestion.correct_answer;
     setScore(isCorrect ? score + 1 : score);
-    goToNextQuestion();
+
+    if (currentQuestionIndex < amount) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
 
     console.log(currentQuestionIndex, score, amount);
   };
