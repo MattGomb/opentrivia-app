@@ -20,8 +20,6 @@ const SearchContextProvider = ({ children }: IProps) => {
     const res = await axios.get<ApiResponse>(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`);
     const data = res.data;
     setData(data);
-
-    console.log(data, res.config.url);
   };
 
   const defineAmount = (amount: number) => {
