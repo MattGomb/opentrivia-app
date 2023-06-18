@@ -19,11 +19,16 @@ const Select = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
-    <>
-      <h1 className="text-4xl font-bold mt-4 mb-8">
-        OpenQuiz
+    <section className="flex flex-col items-center mt-10">
+      <h1 className="text-5xl font-bold mb-4">
+        Open<span className="text-blue-600">Q</span>
+        <span className="text-red-600">u</span>
+        <span className="text-yellow-400">i</span>
+        <span className="text-green-700">z</span>
       </h1>
-      <p>Put together the quiz you would like to solve!</p>
+      <p className="italic mb-10">
+        Put together the quiz you would like to solve!
+      </p>
       <div className="flex flex-col md:flex-row my-4 gap-5">
         <div>
           <label htmlFor="amount" className="py-2">
@@ -124,8 +129,7 @@ const Select = () => {
         <button
           className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           onClick={() => {
-            setIsDisabled(true),
-              fetchQuiz(data.response_code, [])
+            setIsDisabled(true), fetchQuiz(data.response_code, []);
           }}
           disabled={isDisabled}
         >
@@ -142,7 +146,7 @@ const Select = () => {
           </button>
         )}
       </div>
-    </>
+    </section>
   );
 };
 

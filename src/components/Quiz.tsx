@@ -31,8 +31,8 @@ const Quiz = () => {
   // let's change the nested ternaries to something more readable
 
   return (
-    <>
-      <div className="w-full text-center mt-10 p-4">
+    <section className="mb-24 p-4">
+      <div className="w-full text-center">
         {!data.response_code && data.results.length === 0 ? (
           <p className="bg-cyan-600 p-4 font-bold text-white tracking-wider rounded-lg text-2xl">
             Create your quiz by choosing from the options and clicking the magic
@@ -143,7 +143,7 @@ const Quiz = () => {
           </div>
         )}
       </div>
-    </>
+    </section>
   );
 };
 
