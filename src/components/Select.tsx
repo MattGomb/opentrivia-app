@@ -37,7 +37,9 @@ const Select = () => {
           <select
             name="amount"
             id="amount"
-            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:bg-gray-500
+            disabled:text-gray-300 disabled:border-gray-300
+            disabled:cursor-not-allowed"
             value={amount}
             onChange={(e) => defineAmount(+e.target.value)}
             disabled={isDisabled}
@@ -55,7 +57,9 @@ const Select = () => {
           <select
             name="category"
             id="category"
-            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500  disabled:bg-gray-500
+            disabled:text-gray-300 disabled:border-gray-300
+            disabled:cursor-not-allowed"
             value={category}
             onChange={(e) => defineCategory(+e.target.value)}
             disabled={isDisabled}
@@ -96,7 +100,9 @@ const Select = () => {
           <select
             name="difficulty"
             id="difficulty"
-            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:bg-gray-500
+            disabled:text-gray-300 disabled:border-gray-300
+            disabled:cursor-not-allowed"
             value={difficulty}
             onChange={(e) => defineDifficulty(e.target.value)}
             disabled={isDisabled}
@@ -114,7 +120,9 @@ const Select = () => {
           <select
             name="type"
             id="type"
-            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="p-1 my-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:bg-gray-500
+            disabled:text-gray-300 disabled:border-gray-300
+            disabled:cursor-not-allowed"
             value={type}
             onChange={(e) => defineType(e.target.value)}
             disabled={isDisabled}
@@ -127,7 +135,9 @@ const Select = () => {
       </div>
       <div className="flex flex-wrap gap-2">
         <button
-          className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+          className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 disabled:bg-gray-500
+          disabled:text-gray-300 disabled:border-gray-300
+          disabled:cursor-not-allowed"
           onClick={() => {
             setIsDisabled(true), fetchQuiz(data.response_code, []);
           }}
