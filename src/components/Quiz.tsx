@@ -25,8 +25,6 @@ const Quiz = () => {
     console.log(currentQuestionIndex, score, amount);
   };
 
-  // let's change the nested ternaries to something more readable
-
   return (
     <section className="mb-24 p-4 w-full">
       <div className="w-full text-center">
@@ -43,22 +41,22 @@ const Quiz = () => {
           </p>
         )}
         {currentQuestion && currentQuestionIndex < amount && data.response_code === 0 && (
-          <div className="border border-white border-1 rounded-lg drop-shadow-lg bg-slate-700 p-5">
-            <h1 className="m-4 text-xl">
+          <div className="flex flex-col border border-white border-1 rounded-lg drop-shadow-lg bg-slate-700 justify-around h-[36rem] lg:h-[22rem] md:p-5">
+            <h1 className="md:m-4 text-xl">
               {currentQuestionIndex + 1} / {amount}
             </h1>
-            <div className="mt-4 mb-8" key={currentQuestion.question}>
+            <div className="md:mt-4 md:mb-8" key={currentQuestion.question}>
               {category === 0 && (
-                <p className="my-2 text-lg italic">
+                <p className="md:my-2 text-lg italic">
                   {currentQuestion.category}
                 </p>
               )}
               {difficulty === "" && (
-                <span className="my-2 text-lg italic">
+                <span className="md:my-2 text-lg italic">
                   ({currentQuestion.difficulty})
                 </span>
               )}
-              <p className="my-2 text-lg font-bold">
+              <p className="my-2 md:text-lg md:font-bold">
                 {he.decode(currentQuestion.question)}
               </p>
               {currentQuestion.type === "boolean" ? (
