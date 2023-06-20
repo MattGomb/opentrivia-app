@@ -10,16 +10,31 @@ const SearchContextProvider = ({ children }: IProps) => {
   const [category, setCategory] = useState(0);
   const [difficulty, setDifficulty] = useState("");
   const [type, setType] = useState("");
-    
+
   const [data, setData] = useState<ApiResponse>({
     response_code: 0,
     results: [],
   });
 
   const fetchQuiz = async () => {
-    const res = await axios.get<ApiResponse>(`https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`);
-    const data = res.data;
-    setData(data);
+    try {
+      const res = await axios.get<ApiResponse>(
+        `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`
+      );
+      const data = res.data;
+      setData(data);
+
+      const uniqueSet = new Set(data.results);
+      const uniqueArray = Array.from(uniqueSet);
+
+      uniqueSet.forEach((i) => console.log(i.question));
+
+      if (data.results.length !== uniqueArray.length) {
+        fetchQuiz();
+      }
+    } catch (err) {
+      console.log("Error occured during quiz fetch", err);
+    }
   };
 
   const defineAmount = (amount: number) => {
