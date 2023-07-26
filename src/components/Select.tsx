@@ -29,8 +29,8 @@ const Select = () => {
       <p className="italic mb-10">
         Put together the quiz you would like to solve!
       </p>
-      <div className="flex flex-col md:flex-row my-4 gap-5">
-        <div>
+      <div className="flex flex-wrap flex-row mb-8 gap-x-4 gap-y-2 md:gap-x-6 justify-center">
+        <div className="order-1 md:order-1">
           <label htmlFor="amount" className="py-2">
             Amount
           </label>
@@ -50,7 +50,7 @@ const Select = () => {
             <option value={20}>20</option>
           </select>
         </div>
-        <div>
+        <div className="order-4 md:order-2">
           <label htmlFor="category" className="py-2">
             Category
           </label>
@@ -93,7 +93,7 @@ const Select = () => {
             <option value={32}>Entertainment: Cartoon &amp; Animations</option>
           </select>
         </div>
-        <div>
+        <div className="order-2 md:order-3">
           <label htmlFor="difficulty" className="py-2">
             Difficulty
           </label>
@@ -113,7 +113,7 @@ const Select = () => {
             <option value={"hard"}>Hard</option>
           </select>
         </div>
-        <div>
+        <div className="order-3 md:order-4">
           <label htmlFor="type" className="py-2">
             Type
           </label>
@@ -133,7 +133,7 @@ const Select = () => {
           </select>
         </div>
       </div>
-      <div className="flex flex-wrap gap-2 justify-center">
+      <div className="flex w-full justify-between">
         <button
           className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 disabled:bg-gray-500
           disabled:text-gray-300 disabled:border-gray-300
