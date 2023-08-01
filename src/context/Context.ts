@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from "react";
-import { ISearchContext } from "@/app/quiz/components/Types";
+import { ISearchContext } from "@/app/Types";
 
 export const SearchContext = createContext<ISearchContext>({
   data: {

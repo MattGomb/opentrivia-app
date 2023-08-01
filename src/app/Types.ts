@@ -55,6 +55,11 @@ export type ApiResponse = {
   results: Question[];
 };
 
+export interface MainButtonProps {
+  href: string;
+  children: React.ReactNode;
+}
+
 export interface IProps {
   children: ReactNode;
 }

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SearchContext } from "./Context";
 import axios from "axios";
-import { ApiResponse, IProps } from "@/app/quiz/components/Types";
+import { ApiResponse, IProps } from "@/app/Types";
 
 const SearchContextProvider = ({ children }: IProps) => {
   const [amount, setAmount] = useState(10);
