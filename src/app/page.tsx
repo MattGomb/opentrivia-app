@@ -1,13 +1,12 @@
-import Quiz from '@/components/Quiz'
-import Select from '@/components/Select'
-import Footer from '@/components/Footer'
+import Link from 'next/link'
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center px-2 py-2 justify-between">
-      <Select />
-      <Quiz />
-      <Footer />
-    </main>
+    <div>
+      <Link href="/quiz" className=''>QUIZZEZ!</Link>
+      <Link href="/trivia">Trivia of Quiz</Link>
+    </div>
   )
 }
+
+export default Home
