@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from "react";
-import { ISearchContext } from "@/app/Types";
+import { ISearchContext } from "@/app/types";
 
 export const SearchContext = createContext<ISearchContext>({
   data: {
