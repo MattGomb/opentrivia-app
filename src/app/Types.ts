@@ -55,6 +55,13 @@ export type ApiResponse = {
   results: Question[];
 };
 
+export interface Texts {
+  quizTitles: string[];
+  quizParagraphs: string[];
+  triviaTitles: string[];
+  triviaParagraphs: string[];
+}
+
 export interface MainButtonProps {
   href: string;
   children: React.ReactNode;
