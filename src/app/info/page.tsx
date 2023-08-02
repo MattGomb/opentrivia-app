@@ -25,8 +25,8 @@ const Trivia = () => {
           think the word trivia derives from this idea.
         </p>
       </header>
-      <div className="flex">
-        <article className="flex flex-col">
+      <div className="grid grid-cols-3">
+        <article className="flex flex-col col-span-2">
           <h2 className="self-center">Quiz</h2>
           <ul>
             {quizTitles.map((quizTitles, i) => (
@@ -47,7 +47,7 @@ const Trivia = () => {
           </Link>
         </article>
         <Image
-          className="rounded-lg shadow-md mx-4"
+          className="rounded-lg shadow-md mx-4 col-span-1 self-center"
           src={pubquiz}
           alt="pubquiz image"
           placeholder="blur"
@@ -56,26 +56,37 @@ const Trivia = () => {
           height={900}
         />
       </div>
-      <article className="flex flex-col">
-        <h2 className="self-center">Trivia</h2>
-        <ul>
-          {triviaTitles.map((triviaTitles, i) => (
-            <li key={i}>
-              {triviaTitles}
-              <br />
-              {triviaParagraphs[i]}
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="https://www.trivianerd.com/blog/history-of-trivia"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="italic font-light self-end"
-        >
-          source
-        </Link>
-      </article>
+      <div className="grid grid-cols-3">
+      <Image
+          className="rounded-lg shadow-md mx-4 col-span-1 self-center"
+          src={pubquiz}
+          alt="pubquiz image"
+          placeholder="blur"
+          priority
+          width={600}
+          height={900}
+        />
+        <article className="flex flex-col col-span-2">
+          <h2 className="self-center">Trivia</h2>
+          <ul className="ml-4">
+            {triviaTitles.map((triviaTitles, i) => (
+              <li key={i}>
+                {triviaTitles}
+                <br />
+                {triviaParagraphs[i]}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="https://www.trivianerd.com/blog/history-of-trivia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="italic font-light self-end"
+          >
+            source
+          </Link>
+        </article>
+      </div>
     </section>
   );
 };
