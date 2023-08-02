@@ -23,7 +23,7 @@ const Select = () => {
   return (
     <section className="grid grid-cols-12 mt-10 min-w-full">
       <Link href="/" className="flex col-span-1 justify-center p-2">
-          <TiArrowBack size={42} className="border-solid border-2 hover:border-dashed p-1 rounded-md"/>
+          <TiArrowBack size={42} className="border-solid border-2 hover:border-dashed p-1 rounded-md shadow-md hover:-translate-y-0.5 transition-all duration-100"/>
       </Link>
       <div className="col-span-10">
         <div className="flex flex-wrap flex-col content-center">
@@ -145,9 +145,9 @@ const Select = () => {
         </div>
         <div className="flex w-full justify-around">
           <button
-            className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 disabled:bg-gray-500
+            className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 disabled:bg-gray-500
           disabled:text-gray-300 disabled:border-gray-300
-          disabled:cursor-not-allowed"
+          disabled:cursor-not-allowed hover:-translate-y-0.5 transition-all duration-100"
             onClick={() => {
               setIsDisabled(true), fetchQuiz(data.response_code, []);
             }}
@@ -157,7 +157,7 @@ const Select = () => {
           </button>
           {isDisabled && (
             <button
-              className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              className="text-zinc-700 bg-white border border-gray-300 focus:outline-none hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 hover:-translate-y-0.5 transition-all duration-100"
               onClick={() => {
                 setIsDisabled(false), window.location.reload();
               }}
