@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { MainButtonProps } from "./types";
 
-const MainButton = ({ href, children }: MainButtonProps) => {
+function MainButton({ href, children }: MainButtonProps) {
   return (
     <Link
       href={href}
@@ -11,6 +11,6 @@ const MainButton = ({ href, children }: MainButtonProps) => {
       {children}
     </Link>
   );
-};
+}
 
 export default MainButton;
