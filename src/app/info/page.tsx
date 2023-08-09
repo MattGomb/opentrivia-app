@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import pubquiz from "./images/pubquiz.jpg";
+import PageTexts from "./texts/PageTexts.json";
 import QuizTexts from "./texts/QuizTexts.json";
 import TriviaTexts from "./texts/TriviaTexts.json";
 import { Texts } from "@/app/types";
@@ -9,6 +10,7 @@ import { TiArrowBack } from "react-icons/ti";
 const Trivia = () => {
   const { quizTitles, quizParagraphs } = QuizTexts as Texts;
   const { triviaTitles, triviaParagraphs } = TriviaTexts as Texts;
+  const { pageTitle, pageSubtitle } = PageTexts as Texts;
   return (
     <section className="prose md:prose-xl max-w-none bg-white">
       <Link href="/" className="flex justify-center p-2">
@@ -17,12 +19,10 @@ const Trivia = () => {
           className="border-solid border-2 hover:border-dashed p-1 rounded-md border-black shadow-md hover:-translate-y-0.5 transition-all duration-100"
         />
       </Link>
-      <header>
-        <h1>Did you know?</h1>
-        <p className="italic">
-          Legend has it that travelers would meet at the intersection of three
-          crossroads to exchange news, gossip, and tiny interesting facts. Some
-          think the word trivia derives from this idea.
+      <header className="flex flex-col items-center mt-8">
+        <h1>{pageTitle}</h1>
+        <p className="italic text-base text-center px-8">
+          {pageSubtitle}
         </p>
       </header>
       <div className="grid grid-cols-3">

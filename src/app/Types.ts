@@ -60,6 +60,8 @@ export interface Texts {
   quizParagraphs: string[];
   triviaTitles: string[];
   triviaParagraphs: string[];
+  pageTitle: string;
+  pageSubtitle: string;
 }
 
 export interface MainButtonProps {
