@@ -5,7 +5,7 @@ import { TiArrowBack } from "react-icons/ti";
 import { IgetQuizTexts } from "../Types";
 
 async function getQuizTexts<IgetQuizTexts>() {
-  const res = await fetch("http://localhost:3000/api/texts", { method: "GET" });
+  const res = await fetch(`${process.env.URL}/api/texts`, { method: "GET" });
   if (!res.ok) {
     throw new Error("Go fuck yourself");
   }
