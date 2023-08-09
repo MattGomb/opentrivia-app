@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { MainButtonProps } from "@/app/types";
+import { MainButtonProps } from "@/app/Types";
 
 function MainButton({ href, children }: MainButtonProps) {
   return (

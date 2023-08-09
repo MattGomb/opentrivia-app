@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import pubquiz from "./images/pubquiz.jpg";
 import { TiArrowBack } from "react-icons/ti";
-import { IgetQuizTexts } from "../types";
+import { IgetQuizTexts } from "../Types";
 
 async function getQuizTexts<IgetQuizTexts>() {
   const res = await fetch("http://localhost:3000/api/texts", { method: "GET" });
