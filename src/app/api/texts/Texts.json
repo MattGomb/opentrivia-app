@@ -1,0 +1,40 @@
+{
+  "pageTitle": "Did you know?",
+  "pageSubtitle": "Legend has it that travelers would meet at the intersection of three crossroads to exchange news, gossip, and tiny interesting facts. Some think the word trivia derives from this idea.",
+  
+  "quizTitles": [
+    "Origin of the word \"Quiz\": ",
+    "The First Pub Quiz: ",
+    "The First Trivia Pursuit Game: ",
+    "Largest Quiz Participation: ",
+    "Longest Quiz Marathon: ",
+    "Oldest Known Quiz Show: "
+  ],
+
+  "quizParagraphs": [
+    "The word \"quiz\" is believed to have originated in the late 18th century in Dublin, Ireland. It was used as a term for a practical joke or hoax. Over time, its meaning evolved to include the idea of testing someone's knowledge with questions.",
+    "The concept of a pub quiz, where people participate in a quiz while enjoying drinks, is said to have started in the United Kingdom during the 1970s. It quickly gained popularity and became a social activity in many pubs and bars worldwide.",
+    "Trivial Pursuit, a popular trivia board game, was invented by Scott Abbott and Chris Haney in 1979. The game was officially released in 1981 and quickly became a cultural phenomenon, testing players' knowledge in various categories.",
+    "The largest quiz ever held had an astounding 182,513 participants. It was organized by the Department of Sports and Youth Affairs in Kerala, India, on February 12, 1999.",
+    "The record for the longest quiz marathon by an individual is 33 hours and 1 minute, achieved by Suresh Joseph in Kerala, India, on December 22-23, 2011.",
+    "The oldest known quiz show on radio is \"Information Please,\" which first aired in the United States in 1938. The show featured a panel of experts who answered questions sent in by the audience."
+  ],
+
+  "triviaTitles": [
+    "Origin of the word \"Trivia\": ",
+    "Trivial Pursuit's Influence: ",
+    "Trivia Nights and Quizzes: ",
+    "Trivia Leagues and Competitions: ",
+    "Trivia as a Learning Tool: ",
+    "Trivia in Pop Culture: "
+  ],
+
+  "triviaParagraphs": [
+    "The word \"trivia\" comes from Latin, where \"tri-\" means \"three\" and \"via\" means \"roads.\" It originally referred to the three foundational arts of grammar, rhetoric, and logic. Over time, it came to signify unimportant or trivial facts and knowledge.",
+    "Trivial Pursuit, the popular board game, had a significant impact on popularizing the term \"trivia.\" The game's success contributed to the widespread use of \"trivia\" to describe random and insignificant facts.",
+    "Trivia nights and pub quizzes have become popular social activities in many countries. They provide an opportunity for people to test their knowledge and have fun while competing with friends and fellow participants.",
+    "Some enthusiasts take trivia to the next level by participating in trivia leagues and competitions. These events can be highly competitive, with players competing for prizes and recognition as trivia champions.",
+    "Trivia can serve as a fun and engaging way to learn new facts and expand one's knowledge. Many educational apps and websites incorporate trivia-style quizzes to make learning more enjoyable.",
+    "Trivia has become an integral part of pop culture, with trivia shows, games, and challenges featured in movies, TV shows, and online content. The popularity of trivia continues to grow as a form of entertainment and education."
+  ]
+}
