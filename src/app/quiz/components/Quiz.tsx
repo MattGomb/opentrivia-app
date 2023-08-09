@@ -107,12 +107,15 @@ const Quiz = () => {
             </h1>
             <div className="">
               {data.results.map((question, i) => (
-                <div key={i} className="grid grid-cols-1 md:grid-cols-3 px-2 py-2">
-                  <p className="md:col-span-2 font-semibold my-1 px-2 md:pr-5 md:text-left text-xl md:text-2xl">
-                    {i + 1}. {he.decode(question.question)}
+                <div key={i} className="grid grid-cols-1 md:grid-cols-12 px-2 py-3">
+                  <p className="md:col-span-1 font-semibold my-1 px-2 md:pr-5 text-xl md:text-2xl">
+                    {i + 1}.
                   </p>
-                  <div className="md:col-span-1 md:text-left">
-                    <p className="mt-2 mb-1 md:text-lg">
+                  <p className="md:col-span-7 font-semibold my-1 px-2 md:pr-5 md:text-left text-xl md:text-2xl">
+                    {he.decode(question.question)}
+                  </p>
+                  <div className="md:col-span-4 md:text-left">
+                    <p className="my-1 md:text-lg">
                       The correct answer was:{" "}
                       <TiTick
                         color="green"
@@ -122,7 +125,7 @@ const Quiz = () => {
                       {he.decode(question.correct_answer)}
                     </p>
                     {question.correct_answer === chosenAnswer[i] ? (
-                      <p className="mb-1 md:text-lg">
+                      <p className="my-1 md:text-lg">
                         Your answer was:{" "}
                         <TiTick
                           color="green"
@@ -132,7 +135,7 @@ const Quiz = () => {
                         {he.decode(chosenAnswer[i])}
                       </p>
                     ) : (
-                      <p className="mb-1 md:text-lg">
+                      <p className="my-1 md:text-lg">
                         Your answer was:{" "}
                         <FaTimes
                           color="red"

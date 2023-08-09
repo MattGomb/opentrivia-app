@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { SearchContext } from "./Context";
 import axios from "axios";
-import { ApiResponse, IProps } from "../components/Types";
+import { ApiResponse, IProps } from "@/app/Types";
 
 const SearchContextProvider = ({ children }: IProps) => {
   const [amount, setAmount] = useState(10);
@@ -26,8 +26,6 @@ const SearchContextProvider = ({ children }: IProps) => {
 
       const uniqueSet = new Set(data.results);
       const uniqueArray = Array.from(uniqueSet);
-
-      uniqueSet.forEach((i) => console.log(i.question));
 
       if (data.results.length !== uniqueArray.length) {
         fetchQuiz();

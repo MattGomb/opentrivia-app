@@ -1,13 +1,12 @@
-import Quiz from '@/components/Quiz'
-import Select from '@/components/Select'
-import Footer from '@/components/Footer'
+import MainButton from './MainButton'
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center px-2 py-2 justify-between">
-      <Select />
-      <Quiz />
-      <Footer />
+    <main className="flex flex-col md:flex-row min-h-screen items-center px-2 py-2 justify-evenly md:justify-around">
+      <MainButton href="/quiz">QUIZZEZ!</MainButton>
+      <MainButton href="/info">Trivia of Quiz</MainButton>
     </main>
   )
 }
+
+export default Home
