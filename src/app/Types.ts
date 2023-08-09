@@ -55,13 +55,13 @@ export type ApiResponse = {
   results: Question[];
 };
 
-export interface Texts {
-  quizTitles: string[];
-  quizParagraphs: string[];
-  triviaTitles: string[];
-  triviaParagraphs: string[];
-  pageTitle: string;
-  pageSubtitle: string;
+export interface IgetQuizTexts {
+  pageTitle: string,
+  pageSubtitle: string,
+  quizTitles: string[],
+  quizParagraps: string[],
+  triviaTitles: string[],
+  triviaSubtitles: string[]
 }
 
 export interface MainButtonProps {
