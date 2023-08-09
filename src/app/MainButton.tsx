@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { MainButtonProps } from "@/app/types";
+import { MainButtonProps } from "./types";
 
 const MainButton = ({ href, children }: MainButtonProps) => {
   return (
