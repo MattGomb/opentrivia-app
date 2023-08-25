@@ -31,14 +31,15 @@ export default async function Trivia() {
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3">
         <div className="md:col-span-2 p-4 md:p-0 relative z-10">
-          <article>
+          <article className="flex flex-col col-span-2">
             <h2 className="text-center">Quiz</h2>
             <ul>
               {Texts.quizTitles.map((quizTitles: string, i: number) => (
                 <li key={i}>
-                  {quizTitles}
-                  <br />
-                  {Texts.quizParagraphs[i]}
+                  <p className="underline underline-offset-2 mt-2 mb-0">
+                    {quizTitles}
+                  </p>
+                  <p className="my-1">{Texts.quizParagraphs[i]}</p>
                 </li>
               ))}
             </ul>
@@ -74,13 +75,14 @@ export default async function Trivia() {
         />
         <div className="md:col-span-2 p-4 md:p-0 relative z-10">
           <article className="flex flex-col col-span-2">
-            <h2 className="self-center">Trivia</h2>
+            <h2 className="text-center">Trivia</h2>
             <ul className="ml-4">
               {Texts.triviaTitles.map((triviaTitles: string, i: number) => (
                 <li key={i}>
-                  {triviaTitles}
-                  <br />
-                  {Texts.triviaParagraphs[i]}
+                  <p className="underline underline-offset-2 mt-2 mb-0">
+                    {triviaTitles}
+                  </p>
+                  <p className="my-1">{Texts.triviaParagraphs[i]}</p>
                 </li>
               ))}
             </ul>
