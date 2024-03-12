@@ -21,13 +21,16 @@ const Select = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
   return (
-    <section className="grid grid-cols-12 mt-10 min-w-full">
+    <section className="flex flex-col md:grid md:grid-cols-12 mt-4 md:mt-10 min-w-full">
       <Link href="/" className="flex col-span-1 justify-center p-2">
-          <TiArrowBack size={42} className="border-solid border-2 hover:border-dashed p-1 rounded-md shadow-md hover:-translate-y-0.5 transition-all duration-100"/>
+        <TiArrowBack
+          size={42}
+          className="border-solid border-2 hover:border-dashed p-1 rounded-md shadow-md hover:-translate-y-0.5 transition-all duration-100"
+        />
       </Link>
-      <div className="col-span-10">
+      <div className="col-span-10 mt-8 md:mt-0">
         <div className="flex flex-wrap flex-col content-center">
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-5xl font-bold mb-4 text-center">
             Open<span className="text-blue-600">Q</span>
             <span className="text-red-600">u</span>
             <span className="text-yellow-400">i</span>
