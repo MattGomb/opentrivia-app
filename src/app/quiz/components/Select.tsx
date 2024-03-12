@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchContext } from "@/context/Context";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TiArrowBack } from "react-icons/ti";
 import Link from "next/link";
 
